@@ -1,0 +1,21 @@
+
+
+#The location of the host.txt file must be given below.
+
+$computers = get-content C:\Users\amorales\Documents\hosts.txt
+
+ 
+
+foreach ($computer in $computers) {
+
+ 
+
+$remoteFilePath = \\$computer\c$\Users\Public\Documents\presentation.mp4
+
+Copy-Item -Path \\oac1deptshare\marketing\store\StoreMBRBoard.mp4 -Destination $remoteFilePath -Force
+
+Write-Host "I've just copied the file to $remoteFilePath"
+
+ 
+
+}
