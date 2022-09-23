@@ -1,0 +1,9 @@
+#example of array $fruit = @('Apples','Oranges','Bananas')
+
+ 
+
+$computerList = @('its04506L')
+
+ 
+
+Invoke-WUInstall -ComputerName $computerList -Script {ipmo PSWindowsUpdate; Get-WUInstall -AcceptAll -AutoReboot | Out-File C:\Windows\PSWindowsUpdate.log } -Confirm:$false -Verbose 
