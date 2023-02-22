@@ -1,0 +1,28 @@
+Fully tested and its good.
+
+ 
+
+$user = "FR412"
+
+
+
+
+$password = "your password"
+
+
+$password = ConvertTo-SecureString $plainText -AsPlainText -Force
+
+New-LocalUser "$user" -FullName $user -Password $password
+
+
+
+
+Add-LocalGroupMember -Group "Users" -Member "$user"
+
+$regp = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
+
+New-ItemProperty -Path $regp -Name DefaultUserName -Value FR412 -PropertyType 'String' -Force
+
+New-ItemProperty -Path $regp -Name DefaultPassword -Value $password -PropertyType 'String' -Force
+
+New-ItemProperty -Path $regp -Name AutoAdminLogon -Value 1 -PropertyType 'String' -Force
