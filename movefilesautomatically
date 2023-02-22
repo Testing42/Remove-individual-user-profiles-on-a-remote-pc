@@ -1,0 +1,81 @@
+Set-Location -Path \\set\network\location\moveallmp4
+
+ 
+
+function push-storeMBRmp4{
+
+    #The location of the host.txt file must be given below.
+
+    $computers = get-content "hosts member.txt"
+
+ 
+
+    foreach ($computer in $computers) {
+
+ 
+
+        $remoteFilePath = \\$computer\c$\Users\Public\Documents\presentation.mp4
+
+        Copy-Item -Path \\network\location\video.mp4 -Destination $remoteFilePath -Force
+
+        Write-Host "I've just copied the file to $remoteFilePath"
+
+    }
+
+}
+
+ 
+
+function push-CarCaremp4{
+
+    #The location of the host.txt file must be given below.
+
+    $computers = get-content "hosts car care.txt"
+
+ 
+
+    foreach ($computer in $computers) {
+
+ 
+
+        $remoteFilePath = \\$computer\c$\Users\Public\Documents\presentation.mp4
+
+        Copy-Item -Path \\network\location\video.mp4 -Destination $remoteFilePath -Force
+
+        Write-Host "I've just copied the file to $remoteFilePath"
+
+    }
+
+}
+
+ 
+
+function push-storeTRSmp4{
+
+    #The location of the host.txt file must be given below.
+
+    $computers = get-content "hosts travel.txt"
+
+ 
+
+    foreach ($computer in $computers) {
+
+ 
+
+        $remoteFilePath = \\$computer\c$\Users\Public\Documents\presentation.mp4
+
+        Copy-Item -Path \\network\location\video.mp4 -Destination $remoteFilePath -Force
+
+        Write-Host "I've just copied the file to $remoteFilePath"
+
+    }
+
+}
+
+ 
+
+push-storeMBRmp4
+
+push-CarCaremp4
+
+push-storeTRSmp4
