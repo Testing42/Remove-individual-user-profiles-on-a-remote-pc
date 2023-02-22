@@ -1,0 +1,1 @@
+Get-ADUser -Filter { Enabled -eq $true } -Properties Title,Department,Manager -SearchBase "OU=your OU,DC=company,DC=anything after the period" -SearchScope Subtree | select Name, Title, Department, @{n="ManagerName";e={get-aduser $_.manager | select -ExpandProperty name,Description,enabled,manager}} | export-csv C:\Userlist.csv -notypeinformation -encoding UTF8
